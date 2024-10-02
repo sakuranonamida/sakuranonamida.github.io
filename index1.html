@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Minimalist Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Основной стиль для сайта */
+        a {
+            text-decoration: none;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Стиль бокового меню */
+        .side-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #000000;
+            padding-top: 20px;
+        }
+
+        .side-navbar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+
+        .side-navbar a:hover {
+            background-color: #575757;
+        }
+
+        .content {
+            margin-left: 250px;
+            /*padding: 20px;*/
+        }
+
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            .side-navbar {
+                display: none;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+        }
+
+        /* Стиль блоков */
+        .intro-section {
+            background: url('img/bg-img.jpeg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .intro-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .intro-section .content-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .social-section {
+            padding: 60px 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Боковое меню для больших экранов -->
+<nav class="side-navbar d-none d-md-block">
+    <a href="#intro">Домой</a>
+    <a href="#about">Обо мне</a>
+    <a href="#socials">Мои соцсети</a>
+</nav>
+
+<!-- Бургер-меню для мобильных устройств -->
+<nav class="navbar navbar-dark bg-dark d-md-none">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
+                aria-controls="offcanvasMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Offcanvas меню -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMenuLabel">Меню</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Домой</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">Обо мне</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#socials">Мои соцсети</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Контент -->
+<div class="content">
+    <!-- Блок "Обо мне" -->
+    <section id="intro" class="intro-section">
+        <div class="content-inner">
+            <h1>哈喽大家！Меня зовут Антон</h1>
+            <p>Добро пожаловать на мой сайт-визитку</p>
+            <a href="#about" class="btn btn-light btn-lg">Узнать больше</a>
+        </div>
+    </section>
+
+    <!-- Блок "Подробная информация обо мне" -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <img src="img/me.jpg" class="img-fluid rounded-circle" alt="My photo">
+                </div>
+                <div class="col-md-8">
+                    <h2>Чуть больше обо мне:</h2>
+                    <p>Привет! Я Антон, увлеченный программированием и
+                        дизайном. Мое любопытство к миру вокруг приводит к постоянному обучению и поиску креативных
+                        решений.
+                        В свободное время увлекаюсь фотографией и спортом, что
+                        помогает находить вдохновение в повседневной жизни.
+                        Верю, что каждый может сделать мир лучше, и активно участвую в социальных проектах. Буду рад
+                        пообщаться и обсудить возможные сотрудничества!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок социальных сетей -->
+    <section id="socials" class="social-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center mb-2">
+                    <div class="card">
+                        <img src="img/TelegramQR.png" class="card-img-top" alt="QR Code">
+                        <div class="card-body">
+                            <a href="https://t.me/msnun" class="card-text">
+                                <h5 class="card-title">Telegram</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-2">
+                    <div class="card">
+                        <img src="img/VKQR.png" class="card-img-top" alt="QR Code">
+                        <div class="card-body">
+                            <a href="https://vk.com/fuccq" class="card-text"><h5 class="card-title">VK</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-2">
+                    <div class="card">
+                        <img src="#" class="card-img-top" alt="QR Code">
+                        <div class="card-body">
+                            <a href="https://twitter.com" class="card-text"><h5 class="card-title">Twitter</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <p>&copy; 2024年 金色光阴</p>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

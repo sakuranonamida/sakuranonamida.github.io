@@ -1,0 +1,79 @@
+/* General Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    margin-left: 200px; /* Leave space for the fixed navbar */
+}
+
+/* Sidebar */
+.navbar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    transition: all 0.3s;
+}
+
+/* Background for intro section */
+.intro {
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about img {
+    max-width: 100%;
+    height: auto;
+}
+
+.social .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    .content {
+        margin-left: 0;
+    }
+
+    .navbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .about .row {
+        flex-direction: column;
+    }
+}
